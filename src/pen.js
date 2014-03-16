@@ -4,22 +4,12 @@
 
   var markdown = require('./markdown');
 
-  // type detect
-  utils.is = function(obj, type) {
-    return Object.prototype.toString.call(obj).slice(8, -1) === type;
-  };
-
-  // copy props from a obj
-  utils.copy = function(defaults, source) {
-    for(var p in source) {
-      if(source.hasOwnProperty(p)) {
-        var val = source[p];
-        defaults[p] = this.is(val, 'Object') ? this.copy({}, val) :
-          this.is(val, 'Array') ? this.copy([], val) : val;
-      }
+  function copy(to, from) {
+    for (var i in from) {
+      to[i] = from[i];
     }
-    return defaults;
-  };
+    return to;
+  }
 
   // log
   utils.log = function(message, force) {
@@ -58,9 +48,7 @@
       ]
     };
 
-    defaults = utils.copy(defaults, config);
-
-    return defaults;
+    return copy(defaults, config);
   };
 
   Pen = function(el, config) {
@@ -71,8 +59,8 @@
 
     // merge user config
     var defaults = utils.merge(config);
-
     if(defaults.editor.nodeType !== 1) return utils.log('can\'t find editor');
+
     if(defaults.debug) window._pen_debug_mode_on = true;
 
     var editor = defaults.editor;
@@ -103,7 +91,9 @@
 
     // stay on the page
     if (this.config.stay) {
-      this.stay();
+      window.onbeforeunload = function() {
+        if(!this._isDestroyed) return 'Are you going to leave here?';
+      }
     }
   };
 
@@ -339,14 +329,6 @@
     return this;
   };
 
-  Pen.prototype.stay = function() {
-    var that = this;
-    if (!window.onbeforeunload) {
-      window.onbeforeunload = function() {
-        if(!that._isDestroyed) return 'Are you going to leave here?';
-      };
-    }
-  };
 
   Pen.prototype.remove =
   Pen.prototype.destroy = function(isAJoke) {
