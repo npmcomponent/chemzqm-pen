@@ -1,5 +1,6 @@
 # Pen Editor
 
+- This a fork of [sofish/pen](http://sofish.github.io/pen/) with component support and API changed, also cleaned doc.
 - **LIVE DEMO:** [http://chemzqm.github.io/pen](http://chemzqm.github.io/pen)
 - **Markdown is supported**
 
