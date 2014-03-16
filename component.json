@@ -2,7 +2,7 @@
   "name": "pen",
   "repo": "chemzqm/pen",
   "description": "ive editing (+markdown))",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["markdown", "editor", "contenteditable"],
   "dependencies": {},
   "development": {},
