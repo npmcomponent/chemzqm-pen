@@ -20,7 +20,8 @@
 
   #fork{position:fixed;right:0;top:0;}
   </style>
-  <link rel="stylesheet" href="src/pen.css" />
+  <link rel="stylesheet" href="build/build.css" />
+  <script src="build/build.js"></script>
 </head>
 <body>
 
@@ -29,7 +30,7 @@
   <span id="hinted" class="icon-pre disabled" title="Toggle Markdown Hints"></span>
 </div>
 
-<div data-toggle="pen" placeholder="im a placeholder">
+<div id="pen" placeholder="im a placeholder">
   <h2>Enjoy live editing (+markdown)</h2>
 
   <p><b><i>Click to edit, Select to apply effect, click items of toolbar to toggle effects.</i></b></p>
@@ -55,18 +56,13 @@
 <a id="fork" href="https://github.com/sofish/pen" target="_blank"><img
   src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
-<script src="src/pen.js"></script>
-<script src="src/markdown.js"></script>
 <script type="text/javascript">
-
-  // config
-  var options = {
-    editor: document.querySelector('[data-toggle="pen"]'),
-    debug: true
-  };
+  var Pen = require('pen');
 
   // create editor
-  var pen = new Pen(options);
+  var pen = new Pen('pen', {
+    debug: true
+  });
 
 
   // toggle editor mode
@@ -82,7 +78,7 @@
     }
   });
 
-  // toggle editor mode
+  // toggle hint mode
   document.querySelector('#hinted').addEventListener('click', function() {
     var pen = document.querySelector('.pen')
 

@@ -1,7 +1,8 @@
 /*! Licensed under MIT, https://github.com/sofish/pen */
-(function(doc) {
-
+  var doc = document;
   var Pen, FakePen, utils = {};
+
+  var markdown = require('./markdown');
 
   // type detect
   utils.is = function(obj, type) {
@@ -57,21 +58,16 @@
       ]
     };
 
-    // user-friendly config
-    if(config.nodeType === 1) {
-      defaults.editor = config;
-    } else if(config.match && config.match(/^#[\S]+$/)) {
-      defaults.editor = document.getElementById(config.slice(1));
-    } else {
-      defaults = utils.copy(defaults, config);
-    }
+    defaults = utils.copy(defaults, config);
 
     return defaults;
   };
 
-  Pen = function(config) {
-
-    if(!config) return utils.log('can\'t find config', true);
+  Pen = function(el, config) {
+    if (!el) throw new Error('need element or element id as first argument');
+    //It's element id
+    if (typeof el === 'string') config.editor = doc.getElementById(el);
+    else config.editor = el;
 
     // merge user config
     var defaults = utils.merge(config);
@@ -352,6 +348,7 @@
     }
   };
 
+  Pen.prototype.remove =
   Pen.prototype.destroy = function(isAJoke) {
     var destroy = isAJoke ? false : true
       , attr = isAJoke ? 'setAttribute' : 'removeAttribute';
@@ -382,8 +379,8 @@
     defaults.editor.innerHTML = defaults.textarea;
     return defaults.editor;
   };
+  Pen.prototype.markdown = markdown;
 
   // make it accessible
-  this.Pen = doc.getSelection ? Pen : FakePen;
+  module.exports = doc.getSelection ? Pen : FakePen;
 
-}(document));

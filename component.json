@@ -1,0 +1,24 @@
+{
+  "name": "pen",
+  "repo": "chemzqm/pen",
+  "description": "ive editing (+markdown))",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "src/pen.js",
+  "scripts": [
+    "src/pen.js",
+    "src/markdown.js"
+  ],
+  "fonts": [
+    "src/font/fontello.eot",
+    "src/font/fontello.svg",
+    "src/font/fontello.ttf",
+    "src/font/fontello.woff"
+  ],
+  "styles": [
+    "src/pen.css"
+  ]
+}

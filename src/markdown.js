@@ -1,9 +1,6 @@
 /*! Licensed under MIT, https://github.com/sofish/pen */
 (function() {
 
-  // only works with Pen
-  if(!this.Pen) return;
-
   // markdown covertor obj
   var covertor = {
     keymap: { '96': '`', '62': '>', '49': '1', '46': '.', '45': '-', '42': '*', '35': '#'},
@@ -66,7 +63,6 @@
     });
   };
 
-  // append to Pen
-  window.Pen.prototype.markdown = covertor;
+  module.exports = covertor;
 
 }());
