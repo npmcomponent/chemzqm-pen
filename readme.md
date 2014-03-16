@@ -2,7 +2,6 @@
 
 - **LIVE DEMO:** [http://chemzqm.github.io/pen](http://chemzqm.github.io/pen)
 - **Markdown is supported**
-- **Build status:** [![Build Status](https://travis-ci.org/sofish/pen.png?branch=master)](https://travis-ci.org/sofish/pen)
 
 ## Install
 
