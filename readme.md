@@ -1,3 +1,4 @@
+*This repository is a mirror of the [component](http://component.io) module [chemzqm/pen](http://github.com/chemzqm/pen). It has been modified to work with NPM+Browserify. You can install it using the command `npm install npmcomponent/chemzqm-pen`. Please do not open issues or send pull requests against this repo. If you have issues with this repo, report it to [npmcomponent](https://github.com/airportyh/npmcomponent).*
 # Pen Editor
 
 - This a fork of [sofish/pen](http://sofish.github.io/pen/) with component support and API changed, also cleaned doc.

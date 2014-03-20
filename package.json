@@ -1,0 +1,16 @@
+{
+  "name": "chemzqm-pen",
+  "description": "ive editing (+markdown))",
+  "version": "0.0.2",
+  "keywords": [
+    "markdown",
+    "editor",
+    "contenteditable"
+  ],
+  "main": "src/pen.js",
+  "styles": [
+    "src/pen.css"
+  ],
+  "dependencies": {},
+  "license": "MIT"
+}
